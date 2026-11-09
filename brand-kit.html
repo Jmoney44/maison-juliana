@@ -1,0 +1,675 @@
+<title>Maison Juliana Brand Kit</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Jost:wght@300;400;500&display=swap">
+<style>
+/* Layout: a single-theme brand book. Onyx pages, gold hairline frames, chapters stacked on a 1120px column; ivory panels for print proofs. */
+:root{
+  --onyx:#0A0908;
+  --smoke:#16130F;
+  --smoke-2:#211D17;
+  --gold:#C9A55C;
+  --champagne:#E6CF95;
+  --bronze:#8C6A32;
+  --ivory:#F4EDE0;
+  --ink:#EDE5D4;
+  --muted:#A69A84;
+  --line:rgba(201,165,92,.32);
+  --display:"Gilda Display","Didot","Bodoni 72",Georgia,serif;
+  --body:"Jost","Futura","Century Gothic","Avenir Next",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--onyx);color:var(--ink);font-family:var(--body);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;color:var(--champagne)}
+h2{font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.1}
+h3{font-size:1.45rem;line-height:1.2}
+p{margin:0;max-width:62ch}
+.label{font-family:var(--body);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.muted{color:var(--muted)}
+.gold-text{background:linear-gradient(100deg,var(--bronze) 0%,var(--champagne) 38%,var(--gold) 62%,var(--bronze) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,9,8,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--onyx)}
+nav.toc .wrap{display:flex;gap:22px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+nav.toc a{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--champagne)}
+a:focus-visible,button:focus-visible{outline:1px solid var(--champagne);outline-offset:4px}
+
+/* frame */
+.frame{position:relative;border:1px solid var(--line);padding:clamp(28px,6vw,72px) clamp(18px,5vw,64px)}
+.frame::before{content:"";position:absolute;inset:7px;border:1px solid var(--line);pointer-events:none}
+.frame .corner{position:absolute;width:18px;height:18px;border-color:var(--gold);border-style:solid;opacity:.9}
+.frame .tl{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.frame .tr{top:-1px;right:-1px;border-width:1px 1px 0 0}
+.frame .bl{bottom:-1px;left:-1px;border-width:0 0 1px 1px}
+.frame .br{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+
+/* cover */
+.cover{padding-block:48px 72px}
+.cover .frame{text-align:center;display:grid;justify-items:center;gap:18px;background:radial-gradient(ellipse at 50% 35%,rgba(201,165,92,.10),transparent 60%)}
+.cover .bottle{width:58px;height:84px}
+.wordmark{font-family:var(--display);font-size:clamp(2.6rem,9vw,6rem);line-height:1;letter-spacing:.01em}
+.tagline{font-family:var(--display);font-size:clamp(1rem,2.2vw,1.45rem);color:var(--champagne);letter-spacing:.06em}
+.cover .meta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:22px}
+.cover .meta span{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+
+/* chapters */
+section.chapter{padding-block:72px;border-top:1px solid var(--line)}
+.chapter-head{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:24px 48px;margin-bottom:44px;align-items:end}
+.chapter-head .num{font-family:var(--display);font-size:1rem;color:var(--gold);letter-spacing:.2em}
+.chapter-head p{color:var(--muted);margin-top:14px}
+@media (max-width:720px){.chapter-head{grid-template-columns:1fr}}
+
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.panel{background:var(--smoke);border:1px solid var(--line);padding:28px;min-width:0}
+.panel.ivory{background:var(--ivory);color:#2A241B;border-color:transparent}
+.panel.ivory .label{color:var(--bronze)}
+.panel h3{margin-bottom:10px}
+
+/* essence */
+.essence-quote{font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.3rem);line-height:1.3;color:var(--ink);max-width:28ch;text-wrap:balance}
+.essence-quote em{font-style:normal;color:var(--gold)}
+.pillars{margin-top:40px}
+.pillar .label{display:block;margin-bottom:12px}
+.pillar p{color:var(--muted);font-size:.95rem}
+.traits{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.traits span{border:1px solid var(--line);padding:6px 16px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--champagne)}
+
+/* naming */
+.name-row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.7fr) minmax(0,1.4fr);gap:20px;padding-block:24px;border-bottom:1px solid var(--line);align-items:baseline}
+.name-row:first-child{border-top:1px solid var(--line)}
+.name-row .nm{font-family:var(--display);font-size:clamp(1.5rem,3vw,2.1rem);color:var(--champagne)}
+.name-row .role{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.name-row p{color:var(--muted);font-size:.95rem}
+@media (max-width:720px){.name-row{grid-template-columns:1fr;gap:6px}}
+
+/* logo */
+.logo-stage{display:grid;place-items:center;min-height:260px;padding:32px;border:1px solid var(--line);background:var(--onyx);position:relative}
+.logo-stage.ivory{background:var(--ivory);border-color:transparent}
+.logo-stage.gold{background:linear-gradient(135deg,var(--bronze),var(--gold) 50%,var(--champagne));border-color:transparent}
+.logo-stage .cap{position:absolute;left:16px;bottom:12px;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.logo-stage.ivory .cap,.logo-stage.gold .cap{color:#5A4A30}
+.lockup{display:grid;justify-items:center;gap:10px;text-align:center}
+.lockup .w{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.8rem);line-height:1}
+.lockup .t{font-family:var(--display);font-size:.95rem;letter-spacing:.06em}
+.lockup .b{width:34px;height:50px}
+.lockup.on-ivory .w,.lockup.on-ivory .t{color:#1A1611}
+.lockup.on-gold .w,.lockup.on-gold .t{color:var(--onyx)}
+.h-lockup{display:flex;align-items:center;gap:16px}
+.h-lockup .b{width:26px;height:38px}
+.h-lockup .w{font-family:var(--display);font-size:clamp(1.4rem,3vw,2rem);line-height:1}
+.h-lockup .rule{width:1px;height:38px;background:var(--line)}
+.h-lockup .t{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+.monogram{width:120px;height:120px}
+.logo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.logo-grid .wide{grid-column:1 / -1}
+@media (max-width:600px){.logo-grid{grid-template-columns:1fr}}
+
+.clear{position:relative;padding:34px;outline:1px dashed rgba(201,165,92,.55);outline-offset:0}
+.clear .x{position:absolute;font-size:.66rem;color:var(--gold);letter-spacing:.1em}
+.clear .x.t{top:8px;left:50%;transform:translateX(-50%)}
+.clear .x.l{left:8px;top:50%;transform:translateY(-50%)}
+.rules-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.rules-list li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line);font-size:.95rem}
+.rules-list li b{font-weight:400;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding-top:4px}
+
+.misuse{display:grid;gap:10px}
+.misuse .stage{display:grid;place-items:center;height:150px;background:var(--smoke);border:1px solid var(--line);overflow:hidden;position:relative}
+.misuse .stage::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - .75px),rgba(214,96,80,.75) 50%,transparent calc(50% + .75px))}
+.misuse p{font-size:.85rem;color:var(--muted)}
+.misuse .mini .w{font-family:var(--display);font-size:1.5rem;line-height:1}
+.misuse .mini{display:grid;justify-items:center;gap:6px}
+.misuse .mini .b{width:20px;height:30px}
+
+/* color */
+.swatch{display:grid;grid-template-rows:auto auto;border:1px solid var(--line);min-width:0}
+.swatch .chip{height:170px;display:flex;align-items:flex-end;padding:14px}
+.swatch .chip span{font-family:var(--display);font-size:1.25rem}
+.swatch .info{padding:16px;background:var(--smoke);display:grid;gap:4px;font-size:.82rem;font-variant-numeric:tabular-nums}
+.swatch .info .r{display:flex;justify-content:space-between;gap:8px;color:var(--muted)}
+.swatch .info .r b{font-weight:400;color:var(--ink)}
+.swatch .use{font-size:.8rem;color:var(--muted);margin-top:6px;line-height:1.5}
+.copy{background:none;border:1px solid var(--line);color:var(--champagne);font:inherit;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 10px;cursor:pointer;justify-self:start;margin-top:8px}
+.copy:hover{border-color:var(--gold)}
+.ratio{display:flex;height:44px;margin-top:28px;border:1px solid var(--line)}
+.ratio div{display:flex;align-items:center;padding-inline:12px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
+.gradient-bar{height:90px;margin-top:20px;background:linear-gradient(100deg,#8C6A32 0%,#E6CF95 38%,#C9A55C 62%,#8C6A32 100%);display:flex;align-items:flex-end;padding:12px 16px;color:var(--onyx);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* type */
+.specimen{display:grid;gap:18px}
+.specimen .big{font-family:var(--display);font-size:clamp(3.5rem,10vw,7.5rem);line-height:.95;color:var(--champagne)}
+.specimen .big.sans{font-family:var(--body);font-weight:300;letter-spacing:.06em}
+.specimen .alpha{font-size:1.05rem;color:var(--muted);word-break:break-word}
+.scale{display:grid;gap:0;margin-top:32px}
+.scale .s{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--line)}
+.scale .s .k{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-variant-numeric:tabular-nums}
+.scale .s .k small{display:block;color:var(--muted);letter-spacing:.06em;text-transform:none;font-size:.78rem;margin-top:2px}
+@media (max-width:600px){.scale .s{grid-template-columns:1fr;gap:6px}}
+
+/* pattern */
+.deco{height:220px;border:1px solid var(--line);background-color:var(--onyx);
+  background-image:
+   radial-gradient(circle at 0 100%,transparent 27px,rgba(201,165,92,.55) 28px,transparent 29px,transparent 37px,rgba(201,165,92,.35) 38px,transparent 39px),
+   radial-gradient(circle at 100% 100%,transparent 27px,rgba(201,165,92,.55) 28px,transparent 29px,transparent 37px,rgba(201,165,92,.35) 38px,transparent 39px);
+  background-size:80px 44px;background-position:0 0,0 0}
+.deco.lines{background-image:repeating-linear-gradient(90deg,rgba(201,165,92,.4) 0 1px,transparent 1px 14px);background-size:auto}
+.divider{display:flex;align-items:center;gap:14px;color:var(--gold);margin-block:8px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider i{width:8px;height:8px;border:1px solid var(--gold);transform:rotate(45deg);display:block}
+
+/* voice */
+.dos{display:grid;gap:10px;margin:14px 0 0;padding:0;list-style:none}
+.dos li{padding-left:22px;position:relative;font-size:.95rem}
+.dos li::before{content:"";position:absolute;left:2px;top:.7em;width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.donts li::before{border-color:#B9776B;transform:none;width:9px;height:1px;top:.85em;border-width:1px 0 0}
+.caption{border-left:1px solid var(--gold);padding:4px 0 4px 18px;font-family:var(--display);font-size:1.15rem;line-height:1.5;color:var(--ink)}
+.caption small{display:block;font-family:var(--body);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+
+/* applications */
+.mock{display:grid;place-items:center;padding:36px 20px;background:var(--smoke-2);border:1px solid var(--line);min-height:340px;position:relative;min-width:0}
+.mock .cap{position:absolute;left:16px;top:12px;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.card{width:min(100%,336px);aspect-ratio:3.5/2;max-width:100%;box-shadow:0 18px 40px rgba(0,0,0,.5);position:relative}
+.card.front{background:var(--onyx);display:grid;place-items:center}
+.card.front::before{content:"";position:absolute;inset:8px;border:1px solid var(--line)}
+.card.back{background:var(--ivory);color:#2A241B;padding:22px 24px;display:grid;align-content:space-between}
+.card.back .n{font-family:var(--display);font-size:1.3rem;color:#1A1611}
+.card.back .r{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--bronze)}
+.card.back .c{font-size:.72rem;line-height:1.6;color:#4A4030}
+.cards{display:grid;gap:18px;justify-items:center;width:100%}
+
+.ig{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;width:min(100%,420px)}
+.ig > div{aspect-ratio:1;max-width:100%;display:grid;place-items:center;text-align:center;padding:10px;position:relative;overflow:hidden}
+.ig .t1{background:var(--onyx)}
+.ig .t1::before{content:"";position:absolute;inset:6px;border:1px solid var(--line)}
+.ig .t2{background:radial-gradient(circle at 50% 40%,#2B2418,var(--onyx) 70%)}
+.ig .t3{background:var(--ivory);color:#1A1611}
+.ig .q{font-family:var(--display);font-size:clamp(.7rem,2.6vw,.95rem);line-height:1.3}
+.ig .t3 .q{color:#1A1611}
+.ig .sm{font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.ig .t3 .sm{color:var(--bronze)}
+.highlights{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+.hl{display:grid;justify-items:center;gap:6px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.hl .ring{width:54px;height:54px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;background:var(--onyx)}
+.hl .ring svg{width:26px;height:26px}
+
+.box{width:min(100%,220px);aspect-ratio:3/4;background:var(--onyx);position:relative;display:grid;place-items:center;box-shadow:16px 20px 40px rgba(0,0,0,.55);max-width:100%}
+.box::before{content:"";position:absolute;inset:10px;border:1px solid var(--line)}
+.box::after{content:"";position:absolute;inset:16px;border:1px solid rgba(201,165,92,.18)}
+.box .in{display:grid;justify-items:center;gap:8px;text-align:center;position:relative;z-index:1}
+.box .in .w{font-family:var(--display);font-size:1.35rem;line-height:1.05}
+.box .in .line{font-size:.5rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.box .in .ml{font-family:var(--display);font-size:.72rem;color:var(--champagne);margin-top:16px}
+
+.sig{background:var(--ivory);color:#2A241B;padding:22px;width:100%;max-width:440px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:center}
+.sig .bx{width:56px;height:56px;background:var(--onyx);display:grid;place-items:center}
+.sig .bx svg{width:20px;height:30px}
+.sig .n{font-family:var(--display);font-size:1.2rem;color:#1A1611}
+.sig .r{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze)}
+.sig .c{font-size:.75rem;color:#4A4030;margin-top:6px;line-height:1.5;overflow-wrap:anywhere}
+
+.note{font-size:.82rem;color:var(--muted);margin-top:18px}
+.social-table{width:100%;border-collapse:collapse;font-size:.95rem}
+.social-table td{padding:14px 10px 14px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.social-table td:first-child{color:var(--gold);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;width:150px;padding-top:18px}
+.tbl{overflow-x:auto}
+
+footer{padding-block:64px 80px;border-top:1px solid var(--line);text-align:center;display:grid;justify-items:center;gap:10px}
+footer .b{width:28px;height:40px}
+footer p{color:var(--muted);font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--champagne);color:var(--onyx);padding:8px 16px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;z-index:40}
+@media (prefers-reduced-motion:no-preference){
+  .cover .bottle{animation:rise 1.6s ease-out both}
+  .cover .wordmark{animation:rise 1.6s .2s ease-out both}
+  @keyframes rise{from{transform:translateY(8px);opacity:.4}to{transform:none;opacity:1}}
+}
+</style>
+
+<!-- shared symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8C6A32"/>
+      <stop offset=".4" stop-color="#E6CF95"/>
+      <stop offset=".65" stop-color="#C9A55C"/>
+      <stop offset="1" stop-color="#8C6A32"/>
+    </linearGradient>
+    <symbol id="bottle" viewBox="0 0 40 58">
+      <g fill="none" stroke="url(#gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="33" cy="7.5" rx="3.6" ry="4.6"/>
+        <path d="M29.6 9.2 C27 10.4 25.5 11 24 11.6"/>
+        <rect x="14" y="7" width="10" height="9" rx="1"/>
+        <path d="M16 10h6M16 13h6"/>
+        <rect x="16" y="16" width="6" height="4"/>
+        <path d="M10 20h18l3 3v28l-3 3H10l-3-3V23z"/>
+        <path d="M12.5 25h13l1.5 1.5v21l-1.5 1.5h-13l-1.5-1.5v-21z"/>
+        <path d="M19 31l3 6-3 6-3-6z"/>
+      </g>
+    </symbol>
+    <symbol id="bottle-solid" viewBox="0 0 40 58">
+      <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="33" cy="7.5" rx="3.6" ry="4.6"/>
+        <path d="M29.6 9.2 C27 10.4 25.5 11 24 11.6"/>
+        <rect x="14" y="7" width="10" height="9" rx="1"/>
+        <path d="M16 10h6M16 13h6"/>
+        <rect x="16" y="16" width="6" height="4"/>
+        <path d="M10 20h18l3 3v28l-3 3H10l-3-3V23z"/>
+        <path d="M12.5 25h13l1.5 1.5v21l-1.5 1.5h-13l-1.5-1.5v-21z"/>
+        <path d="M19 31l3 6-3 6-3-6z"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="toc" aria-label="Brand kit sections">
+  <div class="wrap">
+    <a href="#essence">Essence</a><a href="#names">Names</a><a href="#logo">Logo</a><a href="#colour">Colour</a><a href="#type">Typography</a><a href="#ornament">Ornament</a><a href="#voice">Voice</a><a href="#apply">Applications</a><a href="#social">Social</a>
+  </div>
+</nav>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="frame">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <span class="label">Brand Identity Guidelines · Edition 01</span>
+      <svg class="bottle" aria-hidden="true"><use href="#bottle"/></svg>
+      <h1 class="wordmark gold-text">Maison Juliana</h1>
+      <div class="tagline">Luxury in Every Scent</div>
+      <div class="divider" style="width:min(320px,80%)"><i></i></div>
+      <div class="meta"><span>Maison Juliana</span><span>Juliana Luxe</span><span>Juli Scent</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- I -->
+<section class="chapter" id="essence">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter I</div>
+      <div><h2>Brand essence</h2><p>Who Maison Juliana is, what it stands for, and how it should feel at every touchpoint, from a bottle on a vanity to a caption on Instagram.</p></div>
+    </div>
+    <p class="essence-quote">A house of fragrance for people who treat scent as a <em>signature</em>, not an accessory. Every bottle is chosen to linger, to be remembered, and to feel like an occasion.</p>
+    <div class="grid g3 pillars">
+      <div class="pillar"><span class="label">Mission</span><p>Make true luxury fragrance personal and reachable, curated with care and presented like a gift every time.</p></div>
+      <div class="pillar"><span class="label">Promise</span><p>Luxury in every scent. Long-lasting oils and parfums, honest notes, and packaging worth keeping.</p></div>
+      <div class="pillar"><span class="label">Audience</span><p>Confident women and men, 22–45, who dress with intention, gift generously and want to be remembered after they leave the room.</p></div>
+    </div>
+    <div class="traits" aria-label="Brand personality">
+      <span>Elegant</span><span>Warm</span><span>Confident</span><span>Timeless</span><span>Personal</span><span>Discreet</span>
+    </div>
+  </div>
+</section>
+
+<!-- II -->
+<section class="chapter" id="names">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter II</div>
+      <div><h2>Name architecture</h2><p>The four names work as one family. Maison Juliana is the house; the others each have a clear job so the brand never feels scattered.</p></div>
+    </div>
+    <div>
+      <div class="name-row"><div class="nm gold-text">Maison Juliana</div><div class="role">Master brand</div><p>The house name. Use on the logo, packaging, website, storefront, invoices and anything formal or legal.</p></div>
+      <div class="name-row"><div class="nm">Juliana Luxe</div><div class="role">Premium collection</div><p>The top tier: extrait de parfum, limited editions and gift boxes. Always written as “Juliana Luxe by Maison Juliana” on first mention.</p></div>
+      <div class="name-row"><div class="nm">Juli Scent</div><div class="role">Everyday line · nickname</div><p>The friendly short form for body mists, travel sizes, oils and casual social content. Never used on the premium range.</p></div>
+      <div class="name-row"><div class="nm">Juliana Scent</div><div class="role">Descriptor only</div><p>A search and conversation phrase, e.g. “shop Juliana scents”. Not a logo and never set in the wordmark style.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- III -->
+<section class="chapter" id="logo">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter III</div>
+      <div><h2>The logo</h2><p>The atomiser bottle, the wordmark and the tagline make up the primary lockup. Each part can also stand alone when space is tight.</p></div>
+    </div>
+
+    <div class="grid logo-grid">
+      <div class="logo-stage wide" style="min-height:340px">
+        <div class="lockup">
+          <svg class="b" style="width:44px;height:64px" aria-hidden="true"><use href="#bottle"/></svg>
+          <div class="w gold-text" style="font-size:clamp(2.2rem,6vw,3.8rem)">Maison Juliana</div>
+          <div class="t" style="color:var(--champagne);font-size:1.1rem">Luxury in Every Scent</div>
+        </div>
+        <span class="cap">Primary lockup · gold on onyx</span>
+      </div>
+      <div class="logo-stage">
+        <div class="h-lockup">
+          <svg class="b" aria-hidden="true"><use href="#bottle"/></svg>
+          <div class="w gold-text">Maison Juliana</div>
+        </div>
+        <span class="cap">Horizontal · web header, labels</span>
+      </div>
+      <div class="logo-stage">
+        <svg class="monogram" viewBox="0 0 120 120" aria-label="MJ monogram">
+          <circle cx="60" cy="60" r="56" fill="none" stroke="url(#gold)" stroke-width="1"/>
+          <circle cx="60" cy="60" r="50" fill="none" stroke="url(#gold)" stroke-width=".6" opacity=".7"/>
+          <text x="60" y="73" text-anchor="middle" font-family="Gilda Display, Didot, Georgia, serif" font-size="38" fill="url(#gold)" letter-spacing="1">MJ</text>
+          <path d="M56 22l4-4 4 4-4 4z M56 98l4-4 4 4-4 4z" fill="url(#gold)"/>
+        </svg>
+        <span class="cap">Monogram · seals, favicon, wax stamp</span>
+      </div>
+      <div class="logo-stage ivory">
+        <div class="lockup on-ivory">
+          <svg class="b" style="color:#8C6A32" aria-hidden="true"><use href="#bottle-solid"/></svg>
+          <div class="w">Maison Juliana</div>
+          <div class="t">Luxury in Every Scent</div>
+        </div>
+        <span class="cap">Reversed · onyx on ivory</span>
+      </div>
+      <div class="logo-stage gold">
+        <div class="lockup on-gold">
+          <svg class="b" style="color:#0A0908" aria-hidden="true"><use href="#bottle-solid"/></svg>
+          <div class="w">Maison Juliana</div>
+          <div class="t">Luxury in Every Scent</div>
+        </div>
+        <span class="cap">Foil / gold ground · onyx</span>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:40px;align-items:center">
+      <div style="display:grid;place-items:center;padding:24px;background:var(--smoke);border:1px solid var(--line);min-width:0">
+        <div class="clear">
+          <span class="x t">x</span><span class="x l">x</span>
+          <div class="lockup">
+            <svg class="b" aria-hidden="true"><use href="#bottle"/></svg>
+            <div class="w gold-text" style="font-size:1.8rem">Maison Juliana</div>
+          </div>
+        </div>
+      </div>
+      <ul class="rules-list">
+        <li><b>Clear space</b><span>Keep empty space on every side equal to <em>x</em>, the height of the bottle icon.</span></li>
+        <li><b>Minimum</b><span>Primary lockup 35&nbsp;mm / 140&nbsp;px wide. Below that, use the horizontal lockup or the MJ monogram.</span></li>
+        <li><b>Print</b><span>Gold foil hot-stamp on matte black board is the preferred finish. Flat print uses Maison Gold.</span></li>
+        <li><b>Digital</b><span>Use the gold gradient version on onyx. Use flat gold on photography.</span></li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:56px;margin-bottom:20px">Never do this</h3>
+    <div class="grid g4">
+      <div class="misuse"><div class="stage"><div class="mini" style="transform:scaleX(1.6)"><svg class="b" aria-hidden="true"><use href="#bottle"/></svg><div class="w gold-text">Maison Juliana</div></div></div><p>Stretch or squash the logo.</p></div>
+      <div class="misuse"><div class="stage"><div class="mini" style="color:#6FA8DC"><svg class="b" aria-hidden="true"><use href="#bottle-solid"/></svg><div class="w">Maison Juliana</div></div></div><p>Recolour it outside the palette.</p></div>
+      <div class="misuse"><div class="stage"><div class="mini" style="text-shadow:3px 3px 4px #000,0 0 12px #ff0;color:var(--gold)"><svg class="b" aria-hidden="true"><use href="#bottle"/></svg><div class="w">Maison Juliana</div></div></div><p>Add glows, shadows or bevels.</p></div>
+      <div class="misuse"><div class="stage" style="background:repeating-linear-gradient(45deg,#7a5b3a 0 12px,#c9a55c 12px 24px,#3a2f22 24px 36px)"><div class="mini"><svg class="b" aria-hidden="true"><use href="#bottle"/></svg><div class="w gold-text">Maison Juliana</div></div></div><p>Place it on busy, low-contrast backgrounds.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IV -->
+<section class="chapter" id="colour">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter IV</div>
+      <div><h2>Colour</h2><p>Onyx and gold carry the brand. Ivory gives it breathing room on print and packaging. Keep the palette disciplined: a page should read as black and gold first.</p></div>
+    </div>
+    <div class="grid g3" id="swatches"></div>
+    <div class="ratio" aria-label="Recommended colour proportions">
+      <div style="flex:60;background:#0A0908;color:#A69A84">Onyx 60%</div>
+      <div style="flex:20;background:#F4EDE0;color:#2A241B">Ivory 20%</div>
+      <div style="flex:12;background:#C9A55C;color:#0A0908">Gold 12%</div>
+      <div style="flex:8;background:#8C6A32;color:#F4EDE0">8%</div>
+    </div>
+    <div class="gradient-bar">Signature gold gradient · #8C6A32 → #E6CF95 → #C9A55C → #8C6A32 · digital only</div>
+    <p class="note">Pantone and CMYK values are close matches for planning. Always approve a printed proof before a full run; gold looks different on every paper.</p>
+  </div>
+</section>
+
+<!-- V -->
+<section class="chapter" id="type">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter V</div>
+      <div><h2>Typography</h2><p>A high-contrast display serif for the voice of the house, paired with a clean geometric sans that carries the 1920s Art Deco mood. Both are free on Google Fonts.</p></div>
+    </div>
+    <div class="grid g2">
+      <div class="panel specimen">
+        <span class="label">Display · Gilda Display</span>
+        <div class="big">Aa</div>
+        <div class="alpha">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; € ₦ $</div>
+        <p class="muted" style="font-size:.9rem">Logo, headlines, product names, quotes. Regular weight only. Sentence case or title case, never all caps.</p>
+      </div>
+      <div class="panel specimen">
+        <span class="label">Body &amp; labels · Jost</span>
+        <div class="big sans">Aa</div>
+        <div class="alpha" style="font-family:var(--body)">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz<br>0123456789 &amp; € ₦ $</div>
+        <p class="muted" style="font-size:.9rem">Body text in Light 300; labels in Regular 400, uppercase, letter-spacing 0.2–0.3em. Prices and notes.</p>
+      </div>
+    </div>
+    <div class="scale">
+      <div class="s"><div class="k">H1 · Display<small>56–96 px · 1.0</small></div><div style="font-family:var(--display);font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;color:var(--champagne)">Velvet Oud</div></div>
+      <div class="s"><div class="k">H2 · Display<small>32–48 px · 1.1</small></div><div style="font-family:var(--display);font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.1">The Golden Hour Collection</div></div>
+      <div class="s"><div class="k">Tagline · Display<small>18–24 px · +0.06em</small></div><div style="font-family:var(--display);font-size:1.3rem;letter-spacing:.06em;color:var(--champagne)">Luxury in Every Scent</div></div>
+      <div class="s"><div class="k">Label · Jost 400<small>11–12 px · +0.28em caps</small></div><div class="label">Eau de Parfum · 50 ml</div></div>
+      <div class="s"><div class="k">Body · Jost 300<small>15–17 px · 1.65</small></div><p>Top notes of bergamot and pink pepper open onto Bulgarian rose, settling into a warm base of amber, vanilla and smoked oud that lasts well into the evening.</p></div>
+    </div>
+    <p class="note">For Canva: Gilda Display and Jost are both in Canva's font library. If unavailable in another tool, substitute Playfair Display (display) and Montserrat Light (body).</p>
+  </div>
+</section>
+
+<!-- VI -->
+<section class="chapter" id="ornament">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter VI</div>
+      <div><h2>Frames &amp; ornament</h2><p>The double hairline frame from the original logo card is the brand's signature graphic. Use it to hold content, never to fill space.</p></div>
+    </div>
+    <div class="grid g3">
+      <div class="panel" style="display:grid;gap:14px">
+        <span class="label">The double frame</span>
+        <div class="frame" style="padding:34px 18px;text-align:center"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i><span style="font-family:var(--display);font-size:1.3rem;color:var(--champagne)">New Arrival</span></div>
+        <p class="muted" style="font-size:.88rem">Two 1px gold lines, 7px apart, with squared corner accents. Line opacity 30–40%.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:14px">
+        <span class="label">Fan pattern</span>
+        <div class="deco" style="height:118px"></div>
+        <p class="muted" style="font-size:.88rem">Art Deco fan for tissue paper, box liners, ribbon and story backgrounds.</p>
+      </div>
+      <div class="panel" style="display:grid;gap:14px">
+        <span class="label">Pinstripe &amp; divider</span>
+        <div class="deco lines" style="height:62px"></div>
+        <div class="divider"><i></i></div>
+        <p class="muted" style="font-size:.88rem">Pinstripe for box sides. Diamond divider between sections or under headlines.</p>
+      </div>
+    </div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="panel">
+        <span class="label">Photography</span>
+        <ul class="dos">
+          <li>Low-key lighting: dark backgrounds, one warm light source, deep shadows.</li>
+          <li>Glass, gold, black marble, silk, dried florals, candlelight.</li>
+          <li>Close crops of hands, wrists and necks applying scent.</li>
+          <li>Warm grade; lift golds, keep blacks rich.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <span class="label">Avoid</span>
+        <ul class="dos donts">
+          <li>Bright white studio backgrounds or neon colours.</li>
+          <li>Stock-looking smiles and cluttered flat-lays.</li>
+          <li>Heavy filters, stickers and more than one emoji per caption.</li>
+          <li>Pricing splashes like “SALE!!!” over product shots.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VII -->
+<section class="chapter" id="voice">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter VII</div>
+      <div><h2>Voice &amp; tone</h2><p>Maison Juliana speaks like a trusted perfumer: warm, assured and sensory. It describes how a scent feels and when to wear it. It never shouts.</p></div>
+    </div>
+    <div class="grid g3">
+      <div class="panel"><h3>Sensory</h3><p class="muted" style="font-size:.95rem">Describe notes, texture and mood. “Soft amber that settles on warm skin.”</p></div>
+      <div class="panel"><h3>Assured</h3><p class="muted" style="font-size:.95rem">Short, confident sentences. No pleading, no countdown pressure.</p></div>
+      <div class="panel"><h3>Personal</h3><p class="muted" style="font-size:.95rem">Speak to one person. “Your signature” rather than “our customers”.</p></div>
+    </div>
+    <div class="grid g2" style="margin-top:20px">
+      <div class="panel">
+        <span class="label">Words we use</span>
+        <div class="traits" style="margin-top:14px"><span>Signature</span><span>Linger</span><span>Crafted</span><span>Velvet</span><span>Golden hour</span><span>Ritual</span><span>Notes</span><span>Gift</span></div>
+      </div>
+      <div class="panel">
+        <span class="label">Words we avoid</span>
+        <div class="traits" style="margin-top:14px"><span style="color:var(--muted)">Cheap</span><span style="color:var(--muted)">Dupe</span><span style="color:var(--muted)">Knock-off</span><span style="color:var(--muted)">Hurry!!!</span><span style="color:var(--muted)">Best price</span></div>
+      </div>
+    </div>
+    <h3 style="margin-top:48px;margin-bottom:22px">Sample captions</h3>
+    <div class="grid g3">
+      <div class="caption">Some scents are worn. Others are remembered. Velvet Oud is the second kind.<small>Product launch</small></div>
+      <div class="caption">Wrapped in black, sealed in gold, chosen by you. Gift boxes are now open for the season.<small>Gifting</small></div>
+      <div class="caption">Two sprays at the pulse, one on the collar. Your Juli Scent ritual, done in ten seconds.<small>Everyday · Juli Scent</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIII -->
+<section class="chapter" id="apply">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter VIII</div>
+      <div><h2>Applications</h2><p>How the system comes together on everyday pieces. Names, product names and contact details below are placeholders to be replaced.</p></div>
+    </div>
+    <div class="grid g2">
+      <div class="mock">
+        <span class="cap">Business card · 85 × 55 mm</span>
+        <div class="cards">
+          <div class="card front">
+            <div class="lockup" style="gap:6px">
+              <svg style="width:20px;height:30px" aria-hidden="true"><use href="#bottle"/></svg>
+              <div class="w gold-text" style="font-size:1.45rem">Maison Juliana</div>
+              <div class="t" style="color:var(--champagne);font-size:.62rem">Luxury in Every Scent</div>
+            </div>
+          </div>
+          <div class="card back">
+            <div><div class="n">Juliana</div><div class="r">Founder &amp; Fragrance Curator</div></div>
+            <div class="c">+000 000 000 0000<br>hello@maisonjuliana.com<br>@maisonjuliana</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock">
+        <span class="cap">Parfum box · Juliana Luxe</span>
+        <div class="box">
+          <div class="in">
+            <svg style="width:24px;height:35px" aria-hidden="true"><use href="#bottle"/></svg>
+            <div class="w gold-text">Maison<br>Juliana</div>
+            <div class="line">Juliana Luxe</div>
+            <div class="ml">Velvet Oud</div>
+            <div class="line">Extrait de Parfum · 50 ml</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock">
+        <span class="cap">Instagram grid &amp; highlights</span>
+        <div style="display:grid;justify-items:center;width:100%">
+          <div class="ig">
+            <div class="t1"><div><div class="q gold-text">Maison<br>Juliana</div><div class="sm">New collection</div></div></div>
+            <div class="t2"><div><svg style="width:30px;height:44px" aria-hidden="true"><use href="#bottle"/></svg><div class="sm">Velvet Oud</div></div></div>
+            <div class="t3"><div><div class="q">“Scent is the last thing they forget.”</div><div class="sm">— Maison Juliana</div></div></div>
+            <div class="t3"><div><div class="q">Gift boxes<br>now open</div><div class="sm">Order in DM</div></div></div>
+            <div class="t1"><div><div class="q" style="color:var(--champagne)">Luxury in<br>Every Scent</div></div></div>
+            <div class="t2"><div><div class="q" style="color:var(--champagne)">Juli Scent</div><div class="sm">Body mists</div></div></div>
+          </div>
+          <div class="highlights">
+            <div class="hl"><div class="ring"><svg aria-hidden="true"><use href="#bottle"/></svg></div>Shop</div>
+            <div class="hl"><div class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0" fill="none" stroke="url(#gold)" stroke-width="1.2"/></svg></div>Gifts</div>
+            <div class="hl"><div class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z" fill="none" stroke="url(#gold)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>Reviews</div>
+            <div class="hl"><div class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8 8-8 8-8-8z M12 8.5l3.5 3.5-3.5 3.5-3.5-3.5z" fill="none" stroke="url(#gold)" stroke-width="1.2"/></svg></div>Luxe</div>
+            <div class="hl"><div class="ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4z" fill="none" stroke="url(#gold)" stroke-width="1.2" stroke-linejoin="round"/></svg></div>Order</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock">
+        <span class="cap">Email signature &amp; thank-you card</span>
+        <div style="display:grid;gap:20px;justify-items:center;width:100%">
+          <div class="sig">
+            <div class="bx"><svg aria-hidden="true"><use href="#bottle"/></svg></div>
+            <div><div class="n">Juliana</div><div class="r">Maison Juliana</div><div class="c">hello@maisonjuliana.com · @maisonjuliana<br>Luxury in Every Scent</div></div>
+          </div>
+          <div class="frame" style="background:var(--onyx);padding:28px 22px;text-align:center;width:100%;max-width:440px">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div style="font-family:var(--display);font-size:1.5rem" class="gold-text">Thank you</div>
+            <p style="margin:10px auto 0;font-size:.85rem;color:var(--muted);max-width:32ch">for choosing Maison Juliana. May this scent stay with you long after the moment has passed.</p>
+            <div class="divider" style="margin-top:16px"><i></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IX -->
+<section class="chapter" id="social">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="num">Chapter IX</div>
+      <div><h2>Social presence</h2><p>Consistent handles and a ready-to-paste bio. Check availability before registering; if a handle is taken, add “.official” rather than numbers.</p></div>
+    </div>
+    <div class="tbl">
+      <table class="social-table">
+        <tr><td>Primary handle</td><td>@maisonjuliana (Instagram, TikTok, Facebook, Pinterest)</td></tr>
+        <tr><td>Secondary</td><td>@julianaluxe (reserve for the premium line) · @juliscent (reserve; redirect to main)</td></tr>
+        <tr><td>Bio</td><td><span id="bio">Maison Juliana · Luxury in Every Scent ✦ Designer &amp; niche fragrances, Juliana Luxe gift boxes, Juli Scent body mists. Order via DM ↓</span><br><button class="copy" type="button" data-copy-el="bio">Copy bio</button></td></tr>
+        <tr><td>Hashtags</td><td><span id="tags">#MaisonJuliana #LuxuryInEveryScent #JulianaLuxe #JuliScent #SignatureScent</span><br><button class="copy" type="button" data-copy-el="tags">Copy hashtags</button></td></tr>
+        <tr><td>Profile image</td><td>MJ monogram or bottle icon, gold on onyx, centred inside the circle crop.</td></tr>
+        <tr><td>Posting rhythm</td><td>Alternate product · mood · words. Keep two of every three tiles dark so the grid reads black and gold.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap" style="display:grid;justify-items:center;gap:10px">
+    <svg class="b" aria-hidden="true"><use href="#bottle"/></svg>
+    <div style="font-family:var(--display);font-size:1.6rem" class="gold-text">Maison Juliana</div>
+    <p>Brand Identity Guidelines · Edition 01 · 2026</p>
+  </div>
+</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const colours=[
+  {n:"Onyx",hex:"#0A0908",rgb:"10 · 9 · 8",cmyk:"75 · 68 · 67 · 90",pms:"Black 6 C",fg:"#A69A84",use:"Primary ground. Packaging, social backgrounds, website."},
+  {n:"Maison Gold",hex:"#C9A55C",rgb:"201 · 165 · 92",cmyk:"0 · 18 · 54 · 21",pms:"≈ 7562 C / gold foil",fg:"#0A0908",use:"Logo, headlines, frames. The brand's signature."},
+  {n:"Champagne",hex:"#E6CF95",rgb:"230 · 207 · 149",cmyk:"0 · 10 · 35 · 10",pms:"≈ 7501 C",fg:"#0A0908",use:"Highlights, taglines, gradient light."},
+  {n:"Antique Bronze",hex:"#8C6A32",rgb:"140 · 106 · 50",cmyk:"0 · 24 · 64 · 45",pms:"≈ 7559 C",fg:"#F4EDE0",use:"Gold shadow, icons on ivory, small labels."},
+  {n:"Ivory Silk",hex:"#F4EDE0",rgb:"244 · 237 · 224",cmyk:"0 · 3 · 8 · 4",pms:"≈ 9224 C",fg:"#2A241B",use:"Cards, tissue, thank-you notes, light layouts."},
+  {n:"Velvet Smoke",hex:"#211D17",rgb:"33 · 29 · 23",cmyk:"0 · 12 · 30 · 87",pms:"≈ Black 7 C",fg:"#A69A84",use:"Secondary dark surfaces, panels, web cards."}
+];
+const host=document.getElementById("swatches");
+host.innerHTML=colours.map(c=>`
+  <div class="swatch">
+    <div class="chip" style="background:${c.hex};color:${c.fg}"><span>${c.n}</span></div>
+    <div class="info">
+      <div class="r">HEX <b>${c.hex}</b></div>
+      <div class="r">RGB <b>${c.rgb}</b></div>
+      <div class="r">CMYK <b>${c.cmyk}</b></div>
+      <div class="r">Pantone <b>${c.pms}</b></div>
+      <div class="use">${c.use}</div>
+      <button class="copy" type="button" data-copy="${c.hex}">Copy ${c.hex}</button>
+    </div>
+  </div>`).join("");
+
+const toast=document.getElementById("toast");let tt;
+function show(msg){toast.textContent=msg;toast.hidden=false;clearTimeout(tt);tt=setTimeout(()=>toast.hidden=true,1600)}
+document.addEventListener("click",e=>{
+  const b=e.target.closest(".copy");if(!b)return;
+  const el=b.dataset.copyEl&&document.getElementById(b.dataset.copyEl);
+  const text=b.dataset.copy||(el&&el.textContent)||"";
+  const fallback=()=>{if(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);show("Selected. Press copy")}else show(text)};
+  try{navigator.clipboard.writeText(text).then(()=>show("Copied "+(b.dataset.copy||"")),fallback)}catch(_){fallback()}
+});
+</script>
